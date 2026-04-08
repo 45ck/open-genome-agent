@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RunManifest",
+  "type": "object",
+  "required": [
+    "run_id",
+    "created_at",
+    "harness",
+    "inputs",
+    "tool_versions"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "harness": {
+      "type": "string",
+      "enum": [
+        "claude",
+        "codex",
+        "mcp",
+        "manual",
+        "unknown"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "reference_build": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "kind",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "index_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "tool_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

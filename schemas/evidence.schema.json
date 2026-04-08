@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "source_type",
+    "source_ref"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "command",
+        "file",
+        "annotation",
+        "note",
+        "external-db"
+      ]
+    },
+    "source_ref": {
+      "type": "string"
+    },
+    "command": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "excerpt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "line_range": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

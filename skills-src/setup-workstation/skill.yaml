@@ -1,0 +1,22 @@
+name: setup-workstation
+title: Setup workstation
+description: Prepare or validate a local genome-analysis workstation. Use before the
+  first run on a machine or when toolchain drift is suspected.
+when_to_use:
+- new clone or new machine
+- tool versions changed
+- permissions or hook behavior need validation
+not_when_to_use:
+- routine analysis on an already validated machine
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+context: fork
+agent: Explore
+disable_model_invocation: false
+outputs:
+- workstation_report.json
+- tool_versions.json

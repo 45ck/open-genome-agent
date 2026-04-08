@@ -1,0 +1,29 @@
+name: Feature request
+description: Suggest a new skill, adapter, toolchain integration, or documentation improvement.
+title: "[feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What gap or friction are you trying to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the workflow, interface, or integration you want.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and data handling impact
+      description: Explain how the change affects provenance, privacy, or confidence boundaries.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional.

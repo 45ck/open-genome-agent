@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(samtools *)",
+      "Bash(bcftools *)",
+      "Bash(vep *)",
+      "Bash(plink2 *)",
+      "Bash(nextflow *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(scp *)",
+      "Bash(rsync *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/claude/pre_tool_policy.py\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/claude/validate_stop.py\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

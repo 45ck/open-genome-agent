@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a defect in the scaffold, generated outputs, or workflow behavior.
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real genome-derived data, secrets, or private reports.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include commands, fixture names, and expected versus actual behavior.
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "e.g. 3.11.9"
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "e.g. Ubuntu 24.04"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or validation output
+      description: Paste redacted output only.

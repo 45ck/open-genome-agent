@@ -1,0 +1,22 @@
+name: generate-report
+title: Generate report
+description: Assemble structured findings and evidence into a human-readable report
+  plus machine-readable index. Use after prioritization is finished.
+when_to_use:
+- findings.json and evidence.jsonl exist
+- a human-readable deliverable is required
+not_when_to_use:
+- upstream analysis is still missing
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+context: null
+agent: null
+disable_model_invocation: false
+outputs:
+- report.md
+- report.html
+- report-index.json

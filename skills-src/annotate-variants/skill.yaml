@@ -1,0 +1,24 @@
+name: annotate-variants
+title: Annotate variants
+description: Annotate variants with deterministic tools such as VEP and preserve exact
+  tool versions and command provenance. Use after normalization and before prioritization.
+when_to_use:
+- gene/transcript consequences are needed
+- you need a structured annotation file for later ranking
+not_when_to_use:
+- you only need simple file QC
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+- Bash(vep *)
+- Bash(bcftools *)
+context: fork
+agent: null
+disable_model_invocation: false
+outputs:
+- annotations.tsv
+- tool_versions.json
+- commands.jsonl

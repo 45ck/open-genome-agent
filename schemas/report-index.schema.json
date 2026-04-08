@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReportIndex",
+  "type": "object",
+  "required": [
+    "run_manifest",
+    "sample_summary",
+    "findings",
+    "evidence",
+    "report_md"
+  ],
+  "properties": {
+    "run_manifest": {
+      "type": "string"
+    },
+    "sample_summary": {
+      "type": "string"
+    },
+    "findings": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "string"
+    },
+    "report_md": {
+      "type": "string"
+    },
+    "report_html": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

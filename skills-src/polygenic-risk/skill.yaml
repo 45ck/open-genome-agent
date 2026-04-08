@@ -1,0 +1,23 @@
+name: polygenic-risk
+title: Polygenic risk
+description: Run optional polygenic or trait-style scoring workflows and label all
+  outputs as probabilistic. Use only when requested and keep results separate from
+  direct variant findings.
+when_to_use:
+- the user explicitly requests PRS or broad predisposition scoring
+not_when_to_use:
+- the user expects diagnosis-like certainty
+- the toolchain or reference score set is not available
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+- Bash(plink2 *)
+context: fork
+agent: null
+disable_model_invocation: false
+outputs:
+- prs_scores.json
+- prs_notes.md

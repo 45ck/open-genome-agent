@@ -1,0 +1,2 @@
+{"evidence_id": "ev-001", "source_type": "file", "source_ref": "examples/synthetic/minimal.vcf", "command": null, "excerpt": "#CHROM POS ... sample1", "path": "examples/synthetic/minimal.vcf", "line_range": "L1-L6"}
+{"evidence_id": "ev-002", "source_type": "note", "source_ref": "examples/reports/demo_report.md", "command": null, "excerpt": "Demonstrates schema shape only.", "path": "examples/reports/demo_report.md", "line_range": "L1-L20"}

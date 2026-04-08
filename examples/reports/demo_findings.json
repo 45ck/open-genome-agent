@@ -1,0 +1,61 @@
+[
+  {
+    "finding_id": "qc-001",
+    "category": "quality-control",
+    "confidence": "verified",
+    "title": "Input file contains one sample and two records",
+    "summary": "Synthetic QC summary only.",
+    "gene": null,
+    "transcript": null,
+    "build": null,
+    "chrom": null,
+    "pos": null,
+    "ref": null,
+    "alt": null,
+    "score_name": null,
+    "score_value": null,
+    "source_files": [
+      "examples/synthetic/minimal.vcf"
+    ],
+    "tool_versions": {
+      "builder": "0.1.0"
+    },
+    "evidence_refs": [
+      "ev-001"
+    ],
+    "caveats": [
+      "Synthetic example."
+    ],
+    "human_review_required": false
+  },
+  {
+    "finding_id": "trait-001",
+    "category": "trait",
+    "confidence": "hypothesis",
+    "title": "Placeholder trait-style example",
+    "summary": "Demonstrates schema shape only.",
+    "gene": "DEMO1",
+    "transcript": null,
+    "build": null,
+    "chrom": "1",
+    "pos": 10177,
+    "ref": "A",
+    "alt": "AC",
+    "score_name": null,
+    "score_value": null,
+    "source_files": [
+      "examples/synthetic/minimal.vcf"
+    ],
+    "tool_versions": {
+      "builder": "0.1.0"
+    },
+    "evidence_refs": [
+      "ev-002"
+    ],
+    "caveats": [
+      "Not a real interpretation.",
+      "Trait example stays below strong-confidence sections."
+    ],
+    "human_review_required": true
+  }
+]

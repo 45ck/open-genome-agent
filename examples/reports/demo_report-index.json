@@ -1,0 +1,8 @@
+{
+  "run_manifest": "examples/reports/demo_run_manifest.json",
+  "sample_summary": "examples/reports/demo_sample_summary.json",
+  "findings": "examples/reports/demo_findings.json",
+  "evidence": "examples/reports/demo_evidence.jsonl",
+  "report_md": "examples/reports/demo_report.md",
+  "report_html": null
+}
