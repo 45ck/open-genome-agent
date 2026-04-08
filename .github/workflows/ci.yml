@@ -5,17 +5,31 @@ on:
   pull_request:
 
 jobs:
-  build-and-test:
+  test-py311:
+    name: test-py311
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+      - name: Build generated outputs
+        run: python scripts/build_all.py
+      - name: Run tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+
+  test-py312:
+    name: test-py312
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">open-genome-agent banner</title>
+  <desc id="desc">A transparent repository banner with a genomics-inspired helix, evidence nodes, and the open-genome-agent project title.</desc>
+  <defs>
+    <linearGradient id="titleGradient" x1="278" y1="120" x2="910" y2="290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5A4"/>
+      <stop offset="0.52" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="strandA" x1="66" y1="64" x2="1150" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5EEAD4" stop-opacity="0.95"/>
+      <stop offset="0.52" stop-color="#60A5FA" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#A3E635" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="strandB" x1="90" y1="350" x2="1110" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22C55E" stop-opacity="0.7"/>
+      <stop offset="0.45" stop-color="#38BDF8" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#14B8A6" stop-opacity="0.75"/>
+    </linearGradient>
+    <radialGradient id="nodeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(992 96) rotate(90) scale(96 96)">
+      <stop stop-color="#60A5FA" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <circle cx="988" cy="96" r="92" fill="url(#nodeGlow)" filter="url(#softBlur)"/>
+  <circle cx="206" cy="302" r="84" fill="#14B8A6" fill-opacity="0.08" filter="url(#softBlur)"/>
+
+  <path d="M54 264C168 194 248 136 338 136C454 136 506 262 612 262C730 262 774 124 894 124C994 124 1056 210 1148 254" stroke="url(#strandA)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M54 136C168 208 248 266 338 266C454 266 506 138 612 138C730 138 774 278 894 278C994 278 1056 190 1148 146" stroke="url(#strandB)" stroke-width="4" stroke-linecap="round"/>
+
+  <g stroke="#94A3B8" stroke-opacity="0.42" stroke-width="2">
+    <path d="M134 168L154 232"/>
+    <path d="M228 151L250 249"/>
+    <path d="M322 139L350 262"/>
+    <path d="M426 151L450 247"/>
+    <path d="M526 172L550 228"/>
+    <path d="M630 174L650 226"/>
+    <path d="M736 154L758 247"/>
+    <path d="M842 137L870 264"/>
+    <path d="M946 149L968 250"/>
+    <path d="M1042 171L1062 226"/>
+  </g>
+
+  <g fill="#E2E8F0" fill-opacity="0.92">
+    <circle cx="154" cy="232" r="6"/>
+    <circle cx="250" cy="249" r="6"/>
+    <circle cx="350" cy="262" r="6"/>
+    <circle cx="450" cy="247" r="6"/>
+    <circle cx="550" cy="228" r="6"/>
+    <circle cx="650" cy="226" r="6"/>
+    <circle cx="758" cy="247" r="6"/>
+    <circle cx="870" cy="264" r="6"/>
+    <circle cx="968" cy="250" r="6"/>
+    <circle cx="1062" cy="226" r="6"/>
+  </g>
+
+  <g fill="#0F172A" fill-opacity="0.06">
+    <circle cx="154" cy="232" r="15"/>
+    <circle cx="550" cy="228" r="18"/>
+    <circle cx="870" cy="264" r="16"/>
+    <circle cx="968" cy="250" r="14"/>
+  </g>
+
+  <text x="600" y="196" text-anchor="middle" font-family="'Aptos', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="62" font-weight="800" letter-spacing="-1.5" fill="url(#titleGradient)">
+    open-genome-agent
+  </text>
+  <text x="600" y="236" text-anchor="middle" font-family="'Aptos', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="21" font-weight="600" fill="#94A3B8">
+    Local-first, evidence-bound genomics workflows for coding agents
+  </text>
+  <text x="600" y="270" text-anchor="middle" font-family="'Aptos', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" letter-spacing="4" fill="#64748B">
+    DETERMINISTIC TOOLS • STRUCTURED EVIDENCE • CROSS-HARNESS WORKFLOWS
+  </text>
+</svg>

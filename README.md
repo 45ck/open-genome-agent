@@ -1,5 +1,9 @@
 # open-genome-agent
 
+<p align="center">
+  <img src="assets/banner.svg" alt="open-genome-agent banner" width="100%" />
+</p>
+
 [![CI](https://github.com/45ck/open-genome-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/45ck/open-genome-agent/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml/badge.svg)](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
