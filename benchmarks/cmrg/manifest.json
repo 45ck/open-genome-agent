@@ -32,6 +32,11 @@
       "description": "Per-gene support output used to gate public claims."
     },
     {
+      "name": "commands_jsonl",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/cmrg/commands.jsonl",
+      "description": "Command provenance emitted when the repo wrapper executes hap.py."
+    },
+    {
       "name": "supported_genes_page",
       "locator": "runs/<timestamp>-<run-id>/benchmarks/cmrg/index.html",
       "description": "Human-readable page that explains supported and unsupported genes."

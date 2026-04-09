@@ -1,0 +1,45 @@
+{
+  "sample_id": "huFE0257",
+  "display_name": "David C Blackwell",
+  "source_profile_url": "https://my.pgp-hms.org/profile/huFE0257",
+  "selection_date": "2026-04-09",
+  "selection_rationale": [
+    "The public profile exposes a whole-genome VCF entry dated 2018-11-26, which is a better first walkthrough input than array-only data.",
+    "The same profile also exposes trait and disease survey responses, so the sample supports a human-style report walkthrough without inventing narrative context.",
+    "The profile footer states that the Personal Genome Project participant genetic and trait dataset has been waived for reuse to the extent possible under law, making it suitable for an open demo."
+  ],
+  "preferred_demo_input": {
+    "kind": "vcf",
+    "profile_row_date": "2018-11-26",
+    "profile_row_label": "Veritas Genetics Participant 55001705013845 - VCF",
+    "reference_build": "b37",
+    "notes": "Use the manually downloaded public VCF as the default walkthrough input. Do not commit the genome file into the repository."
+  },
+  "alternate_public_inputs": [
+    {
+      "kind": "bam",
+      "profile_row_date": "2018-11-26",
+      "profile_row_label": "Veritas Genetics Participant 55001705013845.bam - BAM",
+      "notes": "Too large for the first public walkthrough. Keep it for later raw-data or verification flows."
+    },
+    {
+      "kind": "txt",
+      "profile_row_date": "2015-10-01",
+      "profile_row_label": "23andMe Participant genome_huFE0257_Full_20151001141819.txt",
+      "reference_build": "b37",
+      "notes": "Useful as a lighter fallback if the whole-genome VCF is unavailable locally."
+    }
+  ],
+  "public_context": {
+    "survey_support": true,
+    "notes": [
+      "The public profile exposes participant survey, disease survey, and basic phenotype responses.",
+      "Use that context only as participant-supplied background and keep it separate from deterministic variant findings."
+    ]
+  },
+  "report_constraints": [
+    "Keep direct variant findings, pharmacogenomics, and probabilistic trait or PRS sections separated.",
+    "Do not present the report as diagnosis or treatment guidance.",
+    "Keep public-profile traits and self-reported history as context, not truth labels."
+  ]
+}

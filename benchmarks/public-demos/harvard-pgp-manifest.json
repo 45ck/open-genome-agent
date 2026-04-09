@@ -23,13 +23,18 @@
   "artifacts": [
     {
       "name": "sample_manifest",
-      "locator": "to be pinned after sample selection",
-      "description": "Chosen public sample identifier, download locators, and reuse notes."
+      "locator": "benchmarks/public-demos/huFE0257-manifest.json",
+      "description": "Chosen public sample identifier, source profile, preferred input row, and reuse notes."
     },
     {
       "name": "report_template",
-      "locator": "examples/reports/",
+      "locator": "examples/reports/public_demo_template.md",
       "description": "Human-readable report shape reused for the public demo walkthrough."
+    },
+    {
+      "name": "intake_walkthrough",
+      "locator": "scripts/public_demo_walkthrough.py",
+      "description": "Local-first helper that writes the intake pack for a selected public sample."
     }
   ],
   "caveats": [

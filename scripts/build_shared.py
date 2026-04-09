@@ -26,8 +26,16 @@ def remove_tree(path: Path) -> None:
     def onerror(
         func: Any, target: str, exc_info: tuple[type[BaseException], BaseException, Any]
     ) -> None:
+        target_path = Path(target)
         os.chmod(target, stat.S_IWRITE)
-        func(target)
+        try:
+            func(target)
+        except OSError:
+            if target_path.is_dir():
+                time.sleep(0.1)
+                shutil.rmtree(target_path, onerror=onerror)
+                return
+            raise
 
     for attempt in range(3):
         try:
