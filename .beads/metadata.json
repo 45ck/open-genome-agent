@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "open_genome_agent",
+  "project_id": "9206a642-6710-49a2-a2e8-77052fdcc5aa"
+}
