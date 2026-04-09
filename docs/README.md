@@ -1,13 +1,20 @@
 # Docs
 
-Use this directory as the stable entrypoint for repo documentation.
+Use this directory as the stable entrypoint for repository documentation.
 
 ## Start Here
 
 - repo overview: [README.md](../README.md)
+- confidence model: [confidence-model.md](confidence-model.md)
 - active roadmap: [ROADMAP.md](../ROADMAP.md)
 - safety and scope boundaries: [safety-model.md](safety-model.md)
 - reporting contract: [reporting-spec.md](reporting-spec.md)
+
+## User-Facing Guides
+
+- what the repo can often tell you: [confidence-model.md](confidence-model.md)
+- what the repo does not claim: [what-we-do-not-claim.md](what-we-do-not-claim.md)
+- privacy context for public demos: [public-demo-privacy.md](public-demo-privacy.md)
 
 ## Workflow Guides
 
@@ -15,11 +22,6 @@ Use this directory as the stable entrypoint for repo documentation.
 - optional raw-data route: [raw-data-route.md](raw-data-route.md)
 - CLI provenance example: [cli-provenance-demo.md](cli-provenance-demo.md)
 - harness differences: [harness-matrix.md](harness-matrix.md)
-
-## Repo Policy Pages
-
-- what the repo does not claim: [what-we-do-not-claim.md](what-we-do-not-claim.md)
-- privacy context for public demos: [public-demo-privacy.md](public-demo-privacy.md)
 - architecture notes: [architecture.md](architecture.md)
 
 ## Planning And Tracking

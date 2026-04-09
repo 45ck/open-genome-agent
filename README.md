@@ -8,9 +8,9 @@
 [![CodeQL](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml/badge.svg)](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-Local-first, evidence-bound genomics workflows for coding agents.
+**Analyze your DNA locally with coding agents — and separate stronger signals, weaker signals, and things your genome cannot reliably tell you.**
 
-This repository is a **cross-harness scaffold** for building reusable genome-analysis skills, agents, hooks, and reporting pipelines that work across:
+`open-genome-agent` is a local-first DNA analysis copilot for:
 
 - **Claude Code**
 - **Codex CLI**
@@ -19,6 +19,50 @@ This repository is a **cross-harness scaffold** for building reusable genome-ana
 The design principle is simple:
 
 > **LLM orchestrates. Deterministic bioinformatics tools compute. Structured evidence drives every claim.**
+
+## What this repo is for
+
+This repo is for people who want a system that can help answer questions like:
+
+- What known variants stand out in my data?
+- Are there carrier-status findings worth noticing?
+- Are there pharmacogenomic findings worth discussing with a clinician?
+- What ancestry or lineage clues are visible?
+- Which outputs are fairly strong, which are probabilistic, and which should be treated as weak hints only?
+
+It should feel more like a **disciplined genomics research assistant** than a generic DNA-summary app.
+
+## Confidence model at a glance
+
+### Can often help with relatively stronger signals
+
+- known or well-characterized variant lookups
+- carrier-style findings
+- some pharmacogenomic findings
+- ancestry and lineage clues
+- some simpler trait-linked variants
+
+### May help with weaker, probabilistic signals
+
+- polygenic risk scores
+- trait tendencies
+- performance or body predispositions
+- exploratory leads that deserve follow-up, not blind trust
+
+### Should not claim to tell you
+
+- exact future outcomes
+- exact disease certainty or timing
+- exact personality, intelligence, or lifespan
+- medication safety without clinician review
+
+See [docs/confidence-model.md](docs/confidence-model.md) and [docs/what-we-do-not-claim.md](docs/what-we-do-not-claim.md).
+
+## What this repo is not
+
+This is **not** a doctor, **not** a diagnosis engine, and **not** a replacement for a genetic counselor or clinician.
+
+If the system surfaces something high-impact, the right next step is **human review**.
 
 ## Status
 
@@ -55,6 +99,7 @@ The current proof stack is visible directly in the repo:
 - hard-region benchmark flow: [benchmarks/cmrg/README.md](benchmarks/cmrg/README.md)
 - public genome walkthrough: [benchmarks/public-demos/README.md](benchmarks/public-demos/README.md)
 - interpretation evaluation pack: [evals/interpretation/README.md](evals/interpretation/README.md)
+- confidence model: [docs/confidence-model.md](docs/confidence-model.md)
 - provenance transcript: [docs/cli-provenance-demo.md](docs/cli-provenance-demo.md)
 - limitations panel: [docs/what-we-do-not-claim.md](docs/what-we-do-not-claim.md)
 
@@ -74,7 +119,7 @@ The current proof stack is visible directly in the repo:
 
 The repo separates three concerns:
 
-1. **Policy** — durable operating rules and output requirements
+1. **User-facing confidence model** — what can be said strongly, probabilistically, or not at all
 2. **Source definitions** — skill and agent specs that stay harness-agnostic
 3. **Adapters** — generated runtime layouts for each coding harness
 
@@ -88,7 +133,7 @@ open-genome-agent/
   schemas/          # machine-readable output contracts
   benchmarks/       # benchmark and public-data proof-program assets
   evals/            # interpretation and reasoning evaluation packs
-  docs/             # human-readable guides, constraints, and workflow notes
+  docs/             # human-readable guides, confidence rules, and workflow notes
   skills-src/       # harness-agnostic skill source definitions
   agents-src/       # harness-agnostic agent source definitions
   adapters/         # Claude and Codex generators + templates
