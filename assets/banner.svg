@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">open-genome-agent banner</title>
-  <desc id="desc">A transparent repository banner with a genomics-inspired helix, evidence nodes, and the open-genome-agent project title.</desc>
+  <desc id="desc">A transparent repository banner for a local-first DNA and VCF analysis copilot, with a genomics-inspired helix, evidence nodes, and the open-genome-agent project title.</desc>
   <defs>
     <linearGradient id="titleGradient" x1="278" y1="120" x2="910" y2="290" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0EA5A4"/>
@@ -69,9 +69,9 @@
     open-genome-agent
   </text>
   <text x="600" y="236" text-anchor="middle" font-family="'Aptos', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="21" font-weight="600" fill="#94A3B8">
-    Local-first, evidence-bound genomics workflows for coding agents
+    Local-first DNA and VCF analysis for coding agents
   </text>
   <text x="600" y="270" text-anchor="middle" font-family="'Aptos', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" letter-spacing="4" fill="#64748B">
-    DETERMINISTIC TOOLS • STRUCTURED EVIDENCE • CROSS-HARNESS WORKFLOWS
+    DETERMINISTIC TOOLS • STRUCTURED EVIDENCE • VCF-FIRST WORKFLOWS
   </text>
 </svg>

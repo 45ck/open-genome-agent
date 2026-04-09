@@ -8,9 +8,9 @@
 [![CodeQL](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml/badge.svg)](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**Analyze your DNA locally with coding agents — and separate stronger signals, weaker signals, and things your genome cannot reliably tell you.**
+**Analyze DNA and VCFs locally with coding agents — and separate stronger signals, weaker signals, and things your genome cannot reliably tell you.**
 
-`open-genome-agent` is a local-first DNA analysis copilot for:
+`open-genome-agent` is a local-first DNA analysis copilot for VCF-first genomics workflows across:
 
 - **Claude Code**
 - **Codex CLI**
@@ -19,6 +19,8 @@
 The design principle is simple:
 
 > **LLM orchestrates. Deterministic bioinformatics tools compute. Structured evidence drives every claim.**
+
+It is built for local-first DNA analysis, VCF review, variant interpretation, and conservative pharmacogenomics reporting.
 
 ## What this repo is for
 
@@ -30,7 +32,7 @@ This repo is for people who want a system that can help answer questions like:
 - What ancestry or lineage clues are visible?
 - Which outputs are fairly strong, which are probabilistic, and which should be treated as weak hints only?
 
-It should feel more like a **disciplined genomics research assistant** than a generic DNA-summary app.
+It should feel more like a **disciplined genomics and variant-interpretation research assistant** than a generic DNA-summary app.
 
 ## Confidence model at a glance
 

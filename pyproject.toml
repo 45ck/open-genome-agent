@@ -1,7 +1,7 @@
 [project]
 name = "open-genome-agent"
 version = "0.1.0"
-description = "Cross-harness scaffold for local-first genome-analysis skills, agents, and evidence-bound reporting."
+description = "Local-first DNA and VCF analysis copilot for evidence-bound genomics workflows, variant interpretation, and confidence-tiered reporting."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
@@ -9,7 +9,7 @@ dependencies = []
 authors = [
   { name = "45ck" },
 ]
-keywords = ["genomics", "agents", "bioinformatics", "mcp", "codex", "claude"]
+keywords = ["genomics", "bioinformatics", "dna", "vcf", "variant-interpretation", "pharmacogenomics", "local-first", "privacy", "agents", "codex", "claude"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",

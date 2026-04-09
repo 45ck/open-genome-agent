@@ -8,4 +8,4 @@ repository-code: "https://github.com/45ck/open-genome-agent"
 license: MIT
 version: 0.1.0
 date-released: 2026-04-09
-abstract: "Cross-harness scaffold for local-first genome-analysis skills, agents, and evidence-bound reporting."
+abstract: "Local-first DNA and VCF analysis copilot for evidence-bound genomics workflows, variant interpretation, and confidence-tiered reporting."
