@@ -1,0 +1,39 @@
+{
+  "id": "harvard-pgp-public-demo",
+  "title": "Harvard Personal Genome Project Public Demo Sample",
+  "stage": "public-demo",
+  "kind": "public-demo",
+  "summary": "First public human-style walkthrough sample for evidence-bound report demos on openly shared genome data.",
+  "usage": [
+    "drive a full local reporting walkthrough on a public sample",
+    "demonstrate PGx and trait sections with explicit caveats",
+    "capture CLI-to-report provenance on a real public genome"
+  ],
+  "license": {
+    "name": "Public sharing terms to be verified per sample",
+    "notes": "Choose only samples with clear public reuse terms before adding download locators."
+  },
+  "sources": [
+    {
+      "name": "Harvard Personal Genome Project Data Portal",
+      "url": "https://pgp.med.harvard.edu/data",
+      "notes": "Primary source for publicly shared demo candidates."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "sample_manifest",
+      "locator": "to be pinned after sample selection",
+      "description": "Chosen public sample identifier, download locators, and reuse notes."
+    },
+    {
+      "name": "report_template",
+      "locator": "examples/reports/",
+      "description": "Human-readable report shape reused for the public demo walkthrough."
+    }
+  ],
+  "caveats": [
+    "Do not add a sample until its sharing terms are explicit.",
+    "Keep probabilistic findings separate from direct variant findings."
+  ]
+}

@@ -33,6 +33,15 @@ Version 0.1 focuses on:
 - synthetic fixtures and build tests
 - hook stubs and MCP server stubs
 
+The current delivery direction is a **proof program**:
+
+- benchmark correctness first on public truth data
+- demonstrate end-to-end reporting on public genomes
+- keep interpretation modules evidence-bound and separately evaluated
+- preserve portability across Claude Code and Codex CLI
+
+See [ROADMAP.md](ROADMAP.md) and [DEMO_BACKLOG.md](DEMO_BACKLOG.md).
+
 ## Why this shape
 
 The repo separates three concerns:
@@ -49,6 +58,8 @@ That lets you maintain one workflow definition and emit the files that each agen
 open-genome-agent/
   policy/           # shared operating rules and rubrics
   schemas/          # machine-readable output contracts
+  benchmarks/       # benchmark and public-data proof-program assets
+  evals/            # interpretation and reasoning evaluation packs
   skills-src/       # harness-agnostic skill source definitions
   agents-src/       # harness-agnostic agent source definitions
   adapters/         # Claude and Codex generators + templates
@@ -180,13 +191,17 @@ This repository ships with:
 
 If you publish derivative workflows, keep the safety constraints, provenance expectations, and non-diagnostic framing intact.
 
-## Next steps after upload
+## Near-term direction
 
-1. Replace synthetic examples with a larger validated toy dataset
-2. Wire real VEP / bcftools / PLINK / Nextflow commands into the skill scripts
-3. Decide whether to keep the repo VCF-first or add BAM/CRAM validation in the MVP
-4. Add one local MCP server for evidence storage
-5. Build HTML report rendering from the JSON schemas
+The repo should prove capability in this order:
+
+1. synthetic smoke tests for CI stability
+2. HG002 benchmark mode for hard correctness metrics
+3. CMRG mode for difficult medically relevant regions
+4. one public-genome walkthrough on openly shared data
+5. interpretation evaluation packs with explicit confidence and evidence rules
+
+The backlog for that work lives in [ROADMAP.md](ROADMAP.md) and [DEMO_BACKLOG.md](DEMO_BACKLOG.md).
 
 ## License
 

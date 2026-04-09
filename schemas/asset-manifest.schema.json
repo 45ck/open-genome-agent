@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Public Dataset Or Evaluation Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "stage",
+    "kind",
+    "summary",
+    "usage",
+    "license",
+    "sources",
+    "artifacts"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "synthetic-smoke",
+        "hg002-benchmark",
+        "cmrg-benchmark",
+        "public-demo",
+        "scale",
+        "interpretation",
+        "reasoning"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "benchmark",
+        "truth-set",
+        "public-demo",
+        "scale-pack",
+        "eval-pack"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "usage": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "notes"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "url"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "locator",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

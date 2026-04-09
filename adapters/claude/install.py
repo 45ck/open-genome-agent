@@ -8,7 +8,8 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.build_shared import remove_tree
+from scripts.build_shared import remove_tree  # noqa: E402
+
 
 def main() -> None:
     if len(sys.argv) != 2:
@@ -30,6 +31,7 @@ def main() -> None:
     shutil.copytree(dist / ".claude", dst_claude)
 
     print(f"Installed Claude adapter into {target}")
+
 
 if __name__ == "__main__":
     main()

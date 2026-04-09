@@ -111,6 +111,26 @@ Avoid:
 - Put limitations close to high-impact claims.
 - When a finding is uncertain, say what would increase confidence.
 
+## Quality gates
+
+- This repo uses `noslop` for repo-local and CI quality gates.
+
+- Run `noslop check --tier=fast --pack python --no-spell` before commit-sized changes.
+
+- Run `noslop check --tier=slow --pack python` before push-sized changes.
+
+
+
+## Issue tracking
+
+- Track delivery work in `bd` instead of markdown TODO lists.
+
+- Run `bd prime` for the Beads workflow reference.
+
+- Export the tracked backlog with `bd export --no-memories -o .beads/issues.jsonl` after backlog changes.
+
+
+
 ## Repo commands
 
 - Build generated adapter output: `python scripts/build_all.py`

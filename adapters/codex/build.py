@@ -5,7 +5,8 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.build_shared import build_codex_runtime, remove_tree
+from scripts.build_shared import build_codex_runtime, remove_tree  # noqa: E402
+
 
 def main() -> None:
     dist = ROOT / "adapters" / "codex" / "dist"
@@ -19,6 +20,7 @@ def main() -> None:
         "Package the repo-local skills into a formal plugin here once the workflow stabilizes.\n",
         encoding="utf-8",
     )
+
 
 if __name__ == "__main__":
     main()

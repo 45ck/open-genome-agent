@@ -1,0 +1,44 @@
+{
+  "id": "cmrg-medically-relevant-genes",
+  "title": "NIST Challenging Medically Relevant Genes Benchmark",
+  "stage": "cmrg-benchmark",
+  "kind": "benchmark",
+  "summary": "Hard-region benchmark focused on difficult but medically relevant genes that should not be inferred from easy-region HG002 numbers alone.",
+  "usage": [
+    "measure performance in difficult medically relevant regions",
+    "publish per-gene support boundaries",
+    "separate supported genes from untrusted genes in public reporting"
+  ],
+  "license": {
+    "name": "Public benchmark resources",
+    "notes": "Verify exact upstream terms for each downloaded artifact before redistribution."
+  },
+  "sources": [
+    {
+      "name": "NIST Challenging Medically Relevant Genes Benchmark Set",
+      "url": "https://www.nist.gov/data-publications/challenging-medically-relevant-genes-benchmark-set",
+      "notes": "Primary source for hard-region benchmark assets."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "cmrg_regions",
+      "locator": "upstream download manifest entry",
+      "description": "Benchmark regions for challenging medically relevant genes."
+    },
+    {
+      "name": "per_gene_scorecard",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/cmrg/scorecard.json",
+      "description": "Per-gene support output used to gate public claims."
+    },
+    {
+      "name": "supported_genes_page",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/cmrg/index.html",
+      "description": "Human-readable page that explains supported and unsupported genes."
+    }
+  ],
+  "caveats": [
+    "Only claim support for genes that are directly covered by the benchmark and output artifacts.",
+    "Keep unsupported or partial genes close to the limitations section."
+  ]
+}

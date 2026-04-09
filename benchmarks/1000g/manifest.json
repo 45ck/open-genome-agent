@@ -1,0 +1,39 @@
+{
+  "id": "1000g-scale-pack",
+  "title": "1000 Genomes Scale And Population Test Pack",
+  "stage": "scale",
+  "kind": "scale-pack",
+  "summary": "Population-scale public dataset used for ingestion, query, and population-aware workflow testing.",
+  "usage": [
+    "stress-test ingestion and querying at batch scale",
+    "exercise population-aware summaries and caveats",
+    "support public PRS and ancestry plumbing tests without private genomes"
+  ],
+  "license": {
+    "name": "Public project data",
+    "notes": "Use the current International Genome Sample Resource distribution guidance for actual asset pinning."
+  },
+  "sources": [
+    {
+      "name": "1000 Genomes Project Summary",
+      "url": "https://www.internationalgenome.org/1000-genomes-summary/",
+      "notes": "Primary project landing page for public cohort context."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "sample_manifest",
+      "locator": "to be pinned after cohort selection",
+      "description": "Selected public cohort members and associated metadata."
+    },
+    {
+      "name": "batch_summary",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/1000g/summary.json",
+      "description": "Batch-level throughput and summary output."
+    }
+  ],
+  "caveats": [
+    "Population labels are context, not destiny.",
+    "Keep ancestry and PRS caveats explicit in every batch-facing report."
+  ]
+}

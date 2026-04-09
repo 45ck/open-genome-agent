@@ -20,7 +20,14 @@
       "Bash(curl *)",
       "Bash(wget *)",
       "Bash(scp *)",
-      "Bash(rsync *)"
+      "Bash(rsync *)",
+      "Bash(*--no-verify*)",
+      "Bash(*--force*)",
+      "Bash(git push -f*)",
+      "Edit(.githooks/**)",
+      "Edit(.github/workflows/**)",
+      "Edit(.claude/settings.json)",
+      "Edit(.claude/hooks/**)"
     ]
   },
   "hooks": {
@@ -28,6 +35,11 @@
       {
         "matcher": "Bash",
         "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$(git rev-parse --show-toplevel)/.claude/hooks/pre-tool-use.sh\"",
+            "timeout": 30
+          },
           {
             "type": "command",
             "command": "python3 \"$(git rev-parse --show-toplevel)/hooks/claude/pre_tool_policy.py\"",

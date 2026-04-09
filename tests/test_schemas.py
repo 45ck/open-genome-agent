@@ -4,9 +4,10 @@ import json
 import unittest
 from pathlib import Path
 
-from jsonschema import validate
+from jsonschema import validate  # type: ignore[import-untyped]
 
 ROOT = Path(__file__).resolve().parents[1]
+
 
 class SchemaValidationTest(unittest.TestCase):
     def load_json(self, rel: str):
@@ -35,6 +36,7 @@ class SchemaValidationTest(unittest.TestCase):
             self.load_json("examples/reports/demo_report-index.json"),
             self.load_json("schemas/report-index.schema.json"),
         )
+
 
 if __name__ == "__main__":
     unittest.main()

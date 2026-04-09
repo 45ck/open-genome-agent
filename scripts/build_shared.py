@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-import yaml
+import yaml  # type: ignore[import-untyped]
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_SRC = ROOT / "skills-src"
@@ -20,7 +20,9 @@ def remove_tree(path: Path) -> None:
     if not path.exists():
         return
 
-    def onerror(func: Any, target: str, exc_info: tuple[type[BaseException], BaseException, Any]) -> None:
+    def onerror(
+        func: Any, target: str, exc_info: tuple[type[BaseException], BaseException, Any]
+    ) -> None:
         os.chmod(target, stat.S_IWRITE)
         func(target)
 
@@ -183,11 +185,15 @@ def build_codex_agent(agent_file: Path, out_root: Path) -> None:
     if codex_meta.get("model"):
         lines.append(f'model = "{toml_escape(codex_meta["model"])}"')
     if codex_meta.get("model_reasoning_effort"):
-        lines.append(f'model_reasoning_effort = "{toml_escape(codex_meta["model_reasoning_effort"])}"')
+        lines.append(
+            f'model_reasoning_effort = "{toml_escape(codex_meta["model_reasoning_effort"])}"'
+        )
     if codex_meta.get("sandbox_mode"):
         lines.append(f'sandbox_mode = "{toml_escape(codex_meta["sandbox_mode"])}"')
     if codex_meta.get("nickname_candidates"):
-        nicknames = ", ".join(f'"{toml_escape(item)}"' for item in codex_meta["nickname_candidates"])
+        nicknames = ", ".join(
+            f'"{toml_escape(item)}"' for item in codex_meta["nickname_candidates"]
+        )
         lines.append(f"nickname_candidates = [{nicknames}]")
 
     dev = body.strip().replace('"""', '\\"\\"\\"')
@@ -204,36 +210,60 @@ def render_claude_guidance() -> str:
     core = (POLICY_DIR / "core-policy.md").read_text(encoding="utf-8").strip()
     analysis = (POLICY_DIR / "analysis-rubric.md").read_text(encoding="utf-8").strip()
     output = (POLICY_DIR / "output-rubric.md").read_text(encoding="utf-8").strip()
-    return "\n\n".join([
-        "# CLAUDE.md",
-        "Project guidance for Claude Code.",
-        core,
-        analysis,
-        output,
-        "## Repo commands",
-        "- Build generated adapter output: `python scripts/build_all.py`",
-        "- Run tests: `python -m unittest discover -s tests -p \"test_*.py\"`",
-        "- Rebuild only Claude adapter: `python adapters/claude/build.py`",
-        "",
-    ])
+    return "\n\n".join(
+        [
+            "# CLAUDE.md",
+            "Project guidance for Claude Code.",
+            core,
+            analysis,
+            output,
+            "## Quality gates",
+            "- This repo uses `noslop` for repo-local and CI quality gates.",
+            "- Run `noslop check --tier=fast --pack python --no-spell` before commit-sized changes.",
+            "- Run `noslop check --tier=slow --pack python` before push-sized changes.",
+            "",
+            "## Issue tracking",
+            "- Track delivery work in `bd` instead of markdown TODO lists.",
+            "- Run `bd prime` for the Beads workflow reference.",
+            "- Export the tracked backlog with `bd export --no-memories -o .beads/issues.jsonl` after backlog changes.",
+            "",
+            "## Repo commands",
+            "- Build generated adapter output: `python scripts/build_all.py`",
+            '- Run tests: `python -m unittest discover -s tests -p "test_*.py"`',
+            "- Rebuild only Claude adapter: `python adapters/claude/build.py`",
+            "",
+        ]
+    )
 
 
 def render_codex_guidance() -> str:
     core = (POLICY_DIR / "core-policy.md").read_text(encoding="utf-8").strip()
     analysis = (POLICY_DIR / "analysis-rubric.md").read_text(encoding="utf-8").strip()
     output = (POLICY_DIR / "output-rubric.md").read_text(encoding="utf-8").strip()
-    return "\n\n".join([
-        "# AGENTS.md",
-        "Project guidance for Codex.",
-        core,
-        analysis,
-        output,
-        "## Repo commands",
-        "- Build generated adapter output: `python scripts/build_all.py`",
-        "- Run tests: `python -m unittest discover -s tests -p \"test_*.py\"`",
-        "- Rebuild only Codex adapter: `python adapters/codex/build.py`",
-        "",
-    ])
+    return "\n\n".join(
+        [
+            "# AGENTS.md",
+            "Project guidance for Codex.",
+            core,
+            analysis,
+            output,
+            "## Quality gates",
+            "- This repo uses `noslop` for repo-local and CI quality gates.",
+            "- Run `noslop check --tier=fast --pack python --no-spell` before commit-sized changes.",
+            "- Run `noslop check --tier=slow --pack python` before push-sized changes.",
+            "",
+            "## Beads issue tracker",
+            "- Use `bd` for tracked work instead of markdown TODO lists.",
+            "- Run `bd prime` for the Beads workflow reference.",
+            "- Export the tracked backlog with `bd export --no-memories -o .beads/issues.jsonl` after backlog changes.",
+            "",
+            "## Repo commands",
+            "- Build generated adapter output: `python scripts/build_all.py`",
+            '- Run tests: `python -m unittest discover -s tests -p "test_*.py"`',
+            "- Rebuild only Codex adapter: `python adapters/codex/build.py`",
+            "",
+        ]
+    )
 
 
 def render_claude_settings() -> dict[str, Any]:
@@ -260,6 +290,13 @@ def render_claude_settings() -> dict[str, Any]:
                 "Bash(wget *)",
                 "Bash(scp *)",
                 "Bash(rsync *)",
+                "Bash(*--no-verify*)",
+                "Bash(*--force*)",
+                "Bash(git push -f*)",
+                "Edit(.githooks/**)",
+                "Edit(.github/workflows/**)",
+                "Edit(.claude/settings.json)",
+                "Edit(.claude/hooks/**)",
             ],
         },
         "hooks": {
@@ -269,9 +306,14 @@ def render_claude_settings() -> dict[str, Any]:
                     "hooks": [
                         {
                             "type": "command",
+                            "command": 'sh "$(git rev-parse --show-toplevel)/.claude/hooks/pre-tool-use.sh"',
+                            "timeout": 30,
+                        },
+                        {
+                            "type": "command",
                             "command": 'python3 "$(git rev-parse --show-toplevel)/hooks/claude/pre_tool_policy.py"',
                             "timeout": 30,
-                        }
+                        },
                     ],
                 }
             ],
@@ -384,8 +426,14 @@ def build_claude_runtime(out_root: Path) -> None:
         build_claude_agent(agent_file, out_root)
 
     write_text(out_root / "CLAUDE.md", render_claude_guidance())
-    write_text(out_root / ".claude" / "settings.json", json.dumps(render_claude_settings(), indent=2) + "\n")
-    write_text(out_root / ".claude" / "settings.local.example.json", "{\n  \"$schema\": \"https://json.schemastore.org/claude-code-settings.json\"\n}\n")
+    write_text(
+        out_root / ".claude" / "settings.json",
+        json.dumps(render_claude_settings(), indent=2) + "\n",
+    )
+    write_text(
+        out_root / ".claude" / "settings.local.example.json",
+        '{\n  "$schema": "https://json.schemastore.org/claude-code-settings.json"\n}\n',
+    )
 
 
 def build_codex_runtime(out_root: Path) -> None:
@@ -401,7 +449,10 @@ def build_codex_runtime(out_root: Path) -> None:
 
     write_text(out_root / "AGENTS.md", render_codex_guidance())
     write_text(out_root / ".codex" / "config.toml", render_codex_config())
-    write_text(out_root / ".codex" / "hooks.json", json.dumps(render_codex_hooks(), indent=2) + "\n")
+    write_text(
+        out_root / ".codex" / "hooks.json",
+        json.dumps(render_codex_hooks(), indent=2) + "\n",
+    )
 
 
 def build_all(root_target: Path) -> None:

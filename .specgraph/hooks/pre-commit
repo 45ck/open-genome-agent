@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+set -eu
+if [ -n "${SKIP_AGENT_DOCS_CHECK:-}" ]; then
+  exit 0
+fi
+
+ROOT_DIR="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+
+run_noslop_check() {
+  NOSLOP_LOCAL="${ROOT_DIR}/node_modules/.bin/noslop"
+  if [ -x "${NOSLOP_LOCAL}" ]; then
+    "${NOSLOP_LOCAL}" check --tier fast --dir "${ROOT_DIR}"
+    return $?
+  fi
+
+  if command -v noslop >/dev/null 2>&1; then
+    noslop check --tier fast --dir "${ROOT_DIR}"
+    return $?
+  fi
+
+  if [ -n "${RUN_NOSLOP_CHECKS:-}" ]; then
+    if command -v npx >/dev/null 2>&1; then
+      npx --yes --quiet @45ck/noslop@1.0.0 check --tier fast --dir "${ROOT_DIR}"
+      return $?
+    fi
+  fi
+
+  return 0
+}
+run_noslop_check
+
+if [ -x "${ROOT_DIR}/node_modules/.bin/agent-docs" ]; then
+  exec "${ROOT_DIR}/node_modules/.bin/agent-docs" check --strict "${ROOT_DIR}"
+elif command -v agent-docs >/dev/null 2>&1; then
+  exec agent-docs check --strict "${ROOT_DIR}"
+elif command -v npx >/dev/null 2>&1; then
+  exec npx --yes --quiet @45ck/agent-docs check --strict "${ROOT_DIR}"
+else
+  echo "[agent-docs] No agent-docs executable available."
+  exit 1
+fi

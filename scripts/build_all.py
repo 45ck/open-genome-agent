@@ -5,7 +5,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.build_shared import build_all, remove_tree
+from scripts.build_shared import build_all, remove_tree  # noqa: E402
+
 
 def main() -> None:
     # Build runtime files into the repository root
@@ -33,7 +34,11 @@ def main() -> None:
                 unwanted.unlink()
 
     claude_root = claude_dist
-    for unwanted in [claude_root / ".codex", claude_root / ".agents", claude_root / "AGENTS.md"]:
+    for unwanted in [
+        claude_root / ".codex",
+        claude_root / ".agents",
+        claude_root / "AGENTS.md",
+    ]:
         if unwanted.exists():
             if unwanted.is_dir():
                 remove_tree(unwanted)
@@ -47,6 +52,7 @@ def main() -> None:
         "Package the repo-local skills into a formal plugin here once the workflow stabilizes.\n",
         encoding="utf-8",
     )
+
 
 if __name__ == "__main__":
     main()

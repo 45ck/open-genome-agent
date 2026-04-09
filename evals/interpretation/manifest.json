@@ -1,0 +1,64 @@
+{
+  "id": "interpretation-eval-pack",
+  "title": "Interpretation Evaluation Pack",
+  "stage": "interpretation",
+  "kind": "eval-pack",
+  "summary": "Public evaluation pack for testing claim discipline, evidence linkage, and confidence separation across interpretation modules.",
+  "usage": [
+    "benchmark interpretation modules against better-curated public sources",
+    "score unsupported claims as failures",
+    "verify PRS and exploratory outputs remain separate from direct findings"
+  ],
+  "license": {
+    "name": "Mixed upstream public sources",
+    "notes": "Pin and document source terms per included pack before storing redistributed examples."
+  },
+  "sources": [
+    {
+      "name": "ClinVar Review Status",
+      "url": "https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/",
+      "notes": "Use stronger review-status entries first."
+    },
+    {
+      "name": "CPIC",
+      "url": "https://www.clinpgx.org/cpic",
+      "notes": "Primary pharmacogenomics guidance source."
+    },
+    {
+      "name": "PGS Catalog",
+      "url": "https://www.pgscatalog.org/",
+      "notes": "Primary source for reproducible PRS demonstrations."
+    },
+    {
+      "name": "MaveDB",
+      "url": "https://www.mavedb.org/",
+      "notes": "Primary source for multiplexed assay functional evidence."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "clinvar_pack",
+      "locator": "evals/interpretation/clinvar/",
+      "description": "Filtered interpretation pack for stronger review-status ClinVar cases."
+    },
+    {
+      "name": "pgx_pack",
+      "locator": "evals/interpretation/pgx/",
+      "description": "CPIC and PharmVar-backed pharmacogenomics examples."
+    },
+    {
+      "name": "prs_pack",
+      "locator": "evals/interpretation/prs/",
+      "description": "PGS Catalog-backed PRS examples with explicit caveats."
+    },
+    {
+      "name": "functional_pack",
+      "locator": "evals/interpretation/functional/",
+      "description": "MaveDB-backed functional evidence examples."
+    }
+  ],
+  "caveats": [
+    "Interpretation quality is not the same as variant-calling correctness.",
+    "Keep source class and confidence visible on every evaluation case."
+  ]
+}

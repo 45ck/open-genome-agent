@@ -1,0 +1,54 @@
+{
+  "id": "hg002-baseline",
+  "title": "GIAB HG002 Baseline Benchmark",
+  "stage": "hg002-benchmark",
+  "kind": "benchmark",
+  "summary": "Baseline small-variant benchmark for hard metrics using public HG002 truth resources.",
+  "usage": [
+    "compare query VCF output against GIAB truth resources",
+    "produce reproducible SNP and indel precision, recall, and F1",
+    "publish benchmark-region accounting before public demos"
+  ],
+  "license": {
+    "name": "Public benchmark resources",
+    "notes": "Verify exact upstream terms for each downloaded artifact before redistribution."
+  },
+  "sources": [
+    {
+      "name": "NIST Genome in a Bottle",
+      "url": "https://www.nist.gov/programs-projects/genome-bottle",
+      "notes": "Primary source for HG002 benchmark truth resources."
+    },
+    {
+      "name": "GA4GH Variant Benchmarking Tools",
+      "url": "https://www.ga4gh.org/product/variant-benchmarking-tools/",
+      "notes": "Reference guidance for comparable benchmarking practice."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "truth_vcf",
+      "locator": "upstream download manifest entry",
+      "description": "Truth-set VCF for HG002 baseline comparisons."
+    },
+    {
+      "name": "benchmark_bed",
+      "locator": "upstream download manifest entry",
+      "description": "Callable benchmark regions used to score the comparison."
+    },
+    {
+      "name": "metrics_json",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/hg002/metrics.json",
+      "description": "Machine-readable benchmark outputs for CI and reporting."
+    },
+    {
+      "name": "summary_html",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/hg002/index.html",
+      "description": "Human-readable benchmark summary for screenshots and docs."
+    }
+  ],
+  "caveats": [
+    "Treat HG002 as the baseline proof layer, not the only proof layer.",
+    "Do not collapse easy-region metrics into claims about difficult medically relevant genes."
+  ]
+}

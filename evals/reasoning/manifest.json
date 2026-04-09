@@ -1,0 +1,39 @@
+{
+  "id": "reasoning-eval-pack",
+  "title": "LLM Reasoning Evaluation Pack",
+  "stage": "reasoning",
+  "kind": "eval-pack",
+  "summary": "Public reasoning-oriented evaluation pack for comparing evidence alignment and unsupported-claim rates across harnesses.",
+  "usage": [
+    "compare Claude and Codex reasoning outputs on the same cases",
+    "score unsupported or contradictory claims",
+    "keep reasoning scores separate from deterministic benchmark metrics"
+  ],
+  "license": {
+    "name": "Mixed upstream public sources",
+    "notes": "Check individual benchmark and paper terms before storing redistributed cases."
+  },
+  "sources": [
+    {
+      "name": "VariantBench",
+      "url": "https://aclanthology.org/2025.ijcnlp-srw.26/",
+      "notes": "Primary reference for reasoning-oriented evaluation in variant interpretation."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "case_manifest",
+      "locator": "evals/reasoning/cases/",
+      "description": "Case definitions for reasoning evaluation."
+    },
+    {
+      "name": "result_schema",
+      "locator": "evals/reasoning/results.schema.json",
+      "description": "Structured output shape for reasoning comparisons."
+    }
+  ],
+  "caveats": [
+    "Reasoning quality should not be merged into one score with benchmark precision and recall.",
+    "Treat unsupported claims as first-class failures."
+  ]
+}

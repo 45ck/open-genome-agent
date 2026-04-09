@@ -3,7 +3,7 @@ name = "open-genome-agent"
 version = "0.1.0"
 description = "Cross-harness scaffold for local-first genome-analysis skills, agents, and evidence-bound reporting."
 readme = "README.md"
-license = { text = "MIT" }
+license = "MIT"
 requires-python = ">=3.11"
 dependencies = []
 authors = [
@@ -14,7 +14,6 @@ classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -26,6 +25,10 @@ classifiers = [
 dev = [
   "PyYAML>=6.0",
   "jsonschema>=4.21",
+  "black>=24.8",
+  "ruff>=0.6.5",
+  "mypy>=1.11",
+  "pytest>=8.3",
 ]
 
 [project.urls]
@@ -36,6 +39,35 @@ Documentation = "https://github.com/45ck/open-genome-agent/tree/main/docs"
 
 [tool.unittest]
 # Placeholder section for editors that surface project metadata.
+
+[tool.mypy]
+python_version = "3.11"
+explicit_package_bases = true
+exclude = [
+  "^adapters/.*/dist/",
+  "^mcp/.*/server\\.py$",
+]
+
+[[tool.mypy.overrides]]
+module = ["yaml", "yaml.*", "jsonschema", "jsonschema.*"]
+ignore_missing_imports = true
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/build_all.py" = ["E402"]
+"adapters/claude/build.py" = ["E402"]
+"adapters/claude/install.py" = ["E402"]
+"adapters/codex/build.py" = ["E402"]
+"adapters/codex/install.py" = ["E402"]
+"hooks/claude/pre_tool_policy.py" = ["E402"]
+"hooks/claude/validate_stop.py" = ["E402"]
+"hooks/codex/post_tool_use_review.py" = ["E402"]
+"hooks/codex/pre_tool_use_policy.py" = ["E402"]
+"hooks/codex/session_start.py" = ["E402"]
+"hooks/codex/stop_continue.py" = ["E402"]
+"hooks/codex/user_prompt_submit_data_flywheel.py" = ["E402"]
+
+[tool.setuptools]
+py-modules = []
 
 [build-system]
 requires = ["setuptools>=68", "wheel"]

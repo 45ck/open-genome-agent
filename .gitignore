@@ -9,6 +9,7 @@ __pycache__/
 .coverage
 coverage.xml
 dist/
+node_modules/
 
 # OS/editor
 .DS_Store
@@ -28,6 +29,8 @@ runs/*
 tmp/
 build/
 site/
+generated/
+.specgraph/reports/
 
 # Secrets
 .env

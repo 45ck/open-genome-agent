@@ -1,35 +1,13 @@
 # Roadmap
 
-## Milestone 0 — scaffold
-- shared policy files
-- shared schemas
-- source skills and agents
-- Claude and Codex generators
-- synthetic fixtures
-- CI build test
+The active repository roadmap now lives in the top-level [ROADMAP.md](../ROADMAP.md).
 
-## Milestone 1 — VCF-first analyst
-- ingest
-- build detection
-- normalization
-- annotation
-- prioritization
-- report generation
+That document replaces this older milestone stub with a proof-program plan that prioritizes:
 
-## Milestone 2 — specialized interpretation
-- pharmacogenomics module
-- PRS module
-- panel-based analysis
-- improved HTML report rendering
+- public truth-set benchmarking first
+- hard-region evaluation second
+- public genome demos third
+- interpretation and reasoning evaluation as separate workstreams
+- cross-harness portability throughout
 
-## Milestone 3 — heavy compute
-- BAM/CRAM validation
-- Nextflow integration
-- raw-read workflow wrappers
-- HPC adapters
-
-## Milestone 4 — distribution
-- plugin packaging
-- additional harness adapters
-- benchmark suite
-- richer MCP servers
+See also [DEMO_BACKLOG.md](../DEMO_BACKLOG.md) for the GitHub-ready execution backlog.
