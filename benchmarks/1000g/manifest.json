@@ -23,13 +23,18 @@
   "artifacts": [
     {
       "name": "sample_manifest",
-      "locator": "to be pinned after cohort selection",
+      "locator": "benchmarks/1000g/sample-manifest.json",
       "description": "Selected public cohort members and associated metadata."
     },
     {
       "name": "batch_summary",
       "locator": "runs/<timestamp>-<run-id>/benchmarks/1000g/summary.json",
       "description": "Batch-level throughput and summary output."
+    },
+    {
+      "name": "population_summary_page",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/1000g/index.html",
+      "description": "Human-readable population-aware summary page for the selected public cohort."
     }
   ],
   "caveats": [

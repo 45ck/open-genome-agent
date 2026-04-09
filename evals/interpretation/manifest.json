@@ -55,6 +55,16 @@
       "name": "functional_pack",
       "locator": "evals/interpretation/functional/",
       "description": "MaveDB-backed functional evidence examples."
+    },
+    {
+      "name": "grading_rubric",
+      "locator": "evals/interpretation/evidence-grading-rubric.md",
+      "description": "Scoring rubric for source class, confidence, and failure conditions."
+    },
+    {
+      "name": "pack_index",
+      "locator": "runs/<timestamp>-<run-id>/evals/interpretation/index.json",
+      "description": "Combined case index generated from the individual interpretation packs."
     }
   ],
   "caveats": [

@@ -1,0 +1,22 @@
+{
+  "manifest_id": "demo-raw-hg002",
+  "sample_id": "HG002",
+  "input_kind": "fastq",
+  "reference_build": "GRCh38",
+  "inputs": [
+    {
+      "path": "D:/data/HG002_R1.fastq.gz",
+      "role": "r1",
+      "sha256": null
+    },
+    {
+      "path": "D:/data/HG002_R2.fastq.gz",
+      "role": "r2",
+      "sha256": null
+    }
+  ],
+  "notes": [
+    "Example only. Do not treat this file as a real dataset shipment.",
+    "The raw-data route is optional and should not displace the VCF-first path."
+  ]
+}

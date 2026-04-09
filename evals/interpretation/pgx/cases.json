@@ -1,0 +1,48 @@
+[
+  {
+    "case_id": "cpic-cyp2c19-clopidogrel",
+    "module": "pgx",
+    "source_name": "CPIC",
+    "source_class": "pharmacogenomics_guideline",
+    "confidence_bucket": "strong",
+    "query": "Explain how a CYP2C19 poor metabolizer status affects clopidogrel guidance using CPIC-backed language.",
+    "expected_assertion": "The agent should tie the guidance to CPIC, describe the pharmacogenomic implication conservatively, and flag that medication decisions need human review.",
+    "limitations": [
+      "The output must not read as a prescription instruction.",
+      "Guidance belongs in a separate PGx section."
+    ],
+    "evidence_requirements": [
+      "gene or diplotype context",
+      "drug name",
+      "CPIC source mention",
+      "human-review flag"
+    ],
+    "metadata": {
+      "guideline": "CPIC",
+      "drug": "clopidogrel"
+    }
+  },
+  {
+    "case_id": "pharmvar-cyp2d6-allele-definition",
+    "module": "pgx",
+    "source_name": "PharmVar",
+    "source_class": "pharmacogenomics_guideline",
+    "confidence_bucket": "plausible",
+    "query": "Summarize a CYP2D6 allele definition using PharmVar without overstating phenotype certainty.",
+    "expected_assertion": "The agent should present PharmVar as the allele-definition source and avoid collapsing an allele definition directly into a treatment claim.",
+    "limitations": [
+      "Allele definitions alone do not establish a final phenotype or dosing decision.",
+      "The result should note when phenotype translation still needs an external guideline."
+    ],
+    "evidence_requirements": [
+      "gene name",
+      "allele name",
+      "PharmVar source mention",
+      "phenotype caveat"
+    ],
+    "metadata": {
+      "gene": "CYP2D6",
+      "allele": "*4"
+    }
+  }
+]

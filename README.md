@@ -42,6 +42,22 @@ The current delivery direction is a **proof program**:
 
 See [ROADMAP.md](ROADMAP.md) and [DEMO_BACKLOG.md](DEMO_BACKLOG.md).
 
+## Proof Artifacts
+
+The current proof stack is visible directly in the repo:
+
+- baseline benchmark flow: [benchmarks/hg002/README.md](benchmarks/hg002/README.md)
+- hard-region benchmark flow: [benchmarks/cmrg/README.md](benchmarks/cmrg/README.md)
+- public genome walkthrough: [benchmarks/public-demos/README.md](benchmarks/public-demos/README.md)
+- interpretation evaluation pack: [evals/interpretation/README.md](evals/interpretation/README.md)
+- provenance transcript: [docs/cli-provenance-demo.md](docs/cli-provenance-demo.md)
+- limitations panel: [docs/what-we-do-not-claim.md](docs/what-we-do-not-claim.md)
+
+<p align="center">
+  <img src="assets/proof-program/hg002-benchmark-card.svg" alt="HG002 benchmark proof card" width="48%" />
+  <img src="assets/proof-program/public-demo-card.svg" alt="Public genome walkthrough proof card" width="48%" />
+</p>
+
 ## Why this shape
 
 The repo separates three concerns:

@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "vb-lite-clinvar-pathogenic",
+    "prompt": "Explain a ClinVar pathogenic assertion while preserving review status, non-diagnostic framing, and evidence linkage.",
+    "source_class": "direct_variant_assertion",
+    "expected_guards": [
+      "mentions review status",
+      "keeps diagnosis language out",
+      "links claim to source"
+    ]
+  },
+  {
+    "case_id": "vb-lite-prs-boundary",
+    "prompt": "Describe a published PRS without mixing it into direct variant findings.",
+    "source_class": "polygenic_score",
+    "expected_guards": [
+      "probabilistic framing",
+      "population caveat",
+      "separate bucket from direct findings"
+    ]
+  }
+]

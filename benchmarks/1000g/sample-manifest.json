@@ -1,0 +1,33 @@
+{
+  "cohort_id": "1000g-demo-cohort",
+  "selection_date": "2026-04-09",
+  "reference_build": "GRCh37",
+  "selection_notes": [
+    "This starter cohort spreads samples across distinct 1000 Genomes populations so the repo can exercise population-aware summaries without pretending to cover the full data set.",
+    "The final phase of 1000 Genomes used GRCh37 for phase 3 variant calls, which is a practical default for the initial batch query path."
+  ],
+  "samples": [
+    {
+      "sample_id": "HG00096",
+      "population": "GBR",
+      "super_population": "EUR",
+      "notes": "Example sample id visible in official IGSR phased-VCF documentation."
+    },
+    {
+      "sample_id": "NA18522",
+      "population": "YRI",
+      "super_population": "AFR",
+      "notes": "Example sample id visible in official IGSR variation-pattern documentation."
+    },
+    {
+      "sample_id": "HG02408",
+      "population": "CDX",
+      "super_population": "EAS",
+      "notes": "Example sample id visible in official IGSR variation-pattern documentation."
+    }
+  ],
+  "caveats": [
+    "Population labels are context for summary views, not destiny or phenotype truth.",
+    "The starter cohort is intentionally small and should not be described as representative of the full 1000 Genomes resource."
+  ]
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Public Genome Walkthrough Card</title>
+  <desc id="desc">Proof-program card showing the first Harvard PGP public-demo workflow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5efe3" />
+      <stop offset="100%" stop-color="#e2d7c1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="56" y="56" width="1088" height="518" rx="32" fill="#1f2a1f" />
+  <text x="96" y="128" fill="#f8f4e8" font-family="Georgia, serif" font-size="52">Public Genome Walkthrough</text>
+  <text x="96" y="172" fill="#d8dbc6" font-family="Arial, sans-serif" font-size="24">Pinned Harvard PGP sample, local-first intake pack, evidence-bound report shape.</text>
+
+  <rect x="96" y="220" width="420" height="210" rx="24" fill="#f8f4e8" />
+  <text x="126" y="270" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="22">Selected sample</text>
+  <text x="126" y="322" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="46" font-weight="700">huFE0257</text>
+  <text x="126" y="362" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="24">Veritas VCF on the public profile</text>
+  <text x="126" y="398" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="24">Trait context stays separate from genomic findings</text>
+
+  <rect x="552" y="220" width="496" height="210" rx="24" fill="#f8f4e8" />
+  <text x="582" y="270" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="22">Intake artifacts</text>
+  <text x="582" y="314" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="26">run_manifest.json</text>
+  <text x="582" y="350" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="26">sample_summary.json</text>
+  <text x="582" y="386" fill="#1f2a1f" font-family="Arial, sans-serif" font-size="26">report.md and walkthrough.md</text>
+
+  <text x="96" y="486" fill="#f8f4e8" font-family="Arial, sans-serif" font-size="28">Local genome file stays outside the repo. Public profile context is cited, not rehosted.</text>
+  <text x="96" y="532" fill="#d8dbc6" font-family="Arial, sans-serif" font-size="22">Use `scripts/public_demo_walkthrough.py` to bootstrap the intake pack before annotation or interpretation.</text>
+</svg>

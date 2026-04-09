@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">HG002 Benchmark Card</title>
+  <desc id="desc">Proof-program card showing HG002 benchmark metrics and reproducibility notes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f7f2" />
+      <stop offset="100%" stop-color="#dce7e0" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="50" y="50" width="1100" height="530" rx="32" fill="#111111" />
+  <text x="90" y="130" fill="#f6f4ee" font-family="Georgia, serif" font-size="56">HG002 Benchmark</text>
+  <text x="90" y="175" fill="#c7d9ce" font-family="Arial, sans-serif" font-size="24">Hard metrics first. GIAB truth set. Repo-standard outputs.</text>
+
+  <rect x="90" y="220" width="300" height="150" rx="24" fill="#f6f4ee" />
+  <text x="120" y="275" fill="#111111" font-family="Arial, sans-serif" font-size="22">SNP headline</text>
+  <text x="120" y="330" fill="#111111" font-family="Arial, sans-serif" font-size="44" font-weight="700">F1 / Recall / Precision</text>
+
+  <rect x="420" y="220" width="300" height="150" rx="24" fill="#f6f4ee" />
+  <text x="450" y="275" fill="#111111" font-family="Arial, sans-serif" font-size="22">Indel headline</text>
+  <text x="450" y="330" fill="#111111" font-family="Arial, sans-serif" font-size="44" font-weight="700">F1 / Recall / Precision</text>
+
+  <rect x="750" y="220" width="310" height="150" rx="24" fill="#f6f4ee" />
+  <text x="780" y="275" fill="#111111" font-family="Arial, sans-serif" font-size="22">Artifacts</text>
+  <text x="780" y="315" fill="#111111" font-family="Arial, sans-serif" font-size="24">metrics.json</text>
+  <text x="780" y="350" fill="#111111" font-family="Arial, sans-serif" font-size="24">index.html</text>
+
+  <text x="90" y="445" fill="#f6f4ee" font-family="Arial, sans-serif" font-size="28">Reproducible via `scripts/hg002_benchmark.py`</text>
+  <text x="90" y="495" fill="#c7d9ce" font-family="Arial, sans-serif" font-size="22">Use truth VCF, benchmark BED, reference FASTA, and preserve commands.jsonl when executing hap.py.</text>
+  <text x="90" y="545" fill="#c7d9ce" font-family="Arial, sans-serif" font-size="22">Headline cards prefer PASS rows when present. Full table remains visible in the generated summary.</text>
+</svg>

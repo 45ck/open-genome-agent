@@ -1,0 +1,24 @@
+[
+  {
+    "case_id": "pgs-catalog-coronary-artery-disease",
+    "module": "prs",
+    "source_name": "PGS Catalog",
+    "source_class": "polygenic_score",
+    "confidence_bucket": "plausible",
+    "query": "Describe how a published coronary artery disease PRS should be framed in a public demo.",
+    "expected_assertion": "The agent should present the score as probabilistic, source it to the PGS Catalog, and explicitly separate it from direct variant findings.",
+    "limitations": [
+      "PRS should not be mixed into the same confidence bucket as direct pathogenic variants.",
+      "Population-transferability caveats should remain visible."
+    ],
+    "evidence_requirements": [
+      "PGS Catalog source mention",
+      "probabilistic framing",
+      "population caveat",
+      "separation from direct findings"
+    ],
+    "metadata": {
+      "trait": "coronary artery disease"
+    }
+  }
+]

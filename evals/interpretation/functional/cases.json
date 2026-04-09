@@ -1,0 +1,24 @@
+[
+  {
+    "case_id": "mavedb-brca1-functional-impact",
+    "module": "functional",
+    "source_name": "MaveDB",
+    "source_class": "functional_assay",
+    "confidence_bucket": "plausible",
+    "query": "Summarize an experimentally measured BRCA1 variant effect from a MaveDB-style assay without overstating clinical impact.",
+    "expected_assertion": "The agent should distinguish experimental functional effect from clinical significance and keep the assay evidence linked to its source.",
+    "limitations": [
+      "Functional assay results do not automatically imply final pathogenicity classification.",
+      "The response should say when additional clinical evidence is needed."
+    ],
+    "evidence_requirements": [
+      "variant identifier",
+      "MaveDB source mention",
+      "functional-effect wording",
+      "clinical-translation caveat"
+    ],
+    "metadata": {
+      "gene": "BRCA1"
+    }
+  }
+]

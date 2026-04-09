@@ -1,0 +1,48 @@
+[
+  {
+    "case_id": "clinvar-brca1-carrying-pathogenic",
+    "module": "clinvar",
+    "source_name": "ClinVar",
+    "source_class": "direct_variant_assertion",
+    "confidence_bucket": "strong",
+    "query": "Interpret BRCA1 c.68_69delAG when the underlying source is a higher-review-status ClinVar pathogenic assertion.",
+    "expected_assertion": "The agent should report that ClinVar contains a higher-review-status pathogenic assertion for the variant and should keep the statement tied to the source, variant identity, and review status.",
+    "limitations": [
+      "The evaluation should not treat the ClinVar assertion as a diagnosis.",
+      "The agent must surface review status and avoid implying penetrance certainty."
+    ],
+    "evidence_requirements": [
+      "variant identifier",
+      "ClinVar review status",
+      "clinical significance term",
+      "non-diagnostic caveat"
+    ],
+    "metadata": {
+      "review_status": "practice guideline or multiple submitters with no conflicts",
+      "clinical_significance": "Pathogenic"
+    }
+  },
+  {
+    "case_id": "clinvar-uncertain-significance-boundary",
+    "module": "clinvar",
+    "source_name": "ClinVar",
+    "source_class": "direct_variant_assertion",
+    "confidence_bucket": "plausible",
+    "query": "Summarize a variant with a ClinVar uncertain significance classification while keeping confidence discipline intact.",
+    "expected_assertion": "The agent should preserve uncertainty and avoid reframing uncertain significance as a positive disease finding.",
+    "limitations": [
+      "Uncertain significance should not be promoted into the strong bucket.",
+      "The response should state what additional evidence would improve confidence."
+    ],
+    "evidence_requirements": [
+      "variant identifier",
+      "ClinVar significance label",
+      "uncertainty language",
+      "follow-up evidence note"
+    ],
+    "metadata": {
+      "review_status": "single submitter or conflicting interpretations",
+      "clinical_significance": "Uncertain significance"
+    }
+  }
+]

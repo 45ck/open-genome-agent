@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReasoningResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "backend",
+    "evidence_alignment_score",
+    "unsupported_claims",
+    "contradictions",
+    "source_class_correct"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "backend": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_alignment_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "unsupported_claims": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "contradictions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_class_correct": {
+      "type": "boolean"
+    },
+    "citations_present": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

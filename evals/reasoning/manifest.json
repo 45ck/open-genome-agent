@@ -30,6 +30,11 @@
       "name": "result_schema",
       "locator": "evals/reasoning/results.schema.json",
       "description": "Structured output shape for reasoning comparisons."
+    },
+    {
+      "name": "comparison_output",
+      "locator": "runs/<timestamp>-<run-id>/evals/reasoning/summary.json",
+      "description": "Aggregated backend comparison with unsupported-claim and contradiction counts."
     }
   ],
   "caveats": [
