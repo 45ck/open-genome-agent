@@ -8,7 +8,10 @@ import time
 from pathlib import Path
 from typing import Any
 
-import yaml  # type: ignore[import-untyped]
+try:
+    import yaml  # type: ignore[import-untyped]
+except ModuleNotFoundError:  # pragma: no cover - exercised in subprocess tests
+    yaml = None
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_SRC = ROOT / "skills-src"
@@ -56,8 +59,175 @@ def copy_tree(src: Path, dst: Path) -> None:
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
-    with path.open("r", encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+    return load_yaml_text(path.read_text(encoding="utf-8"))
+
+
+def parse_scalar(value: str) -> Any:
+    text = value.strip()
+    if text == "null":
+        return None
+    if text == "true":
+        return True
+    if text == "false":
+        return False
+    if text.startswith('"') and text.endswith('"'):
+        return json.loads(text)
+    if text.startswith("'") and text.endswith("'"):
+        return text[1:-1]
+    try:
+        return int(text)
+    except ValueError:
+        try:
+            return float(text)
+        except ValueError:
+            return text
+
+
+def simple_yaml_load(text: str) -> Any:
+    lines = text.splitlines()
+
+    def line_indent(line: str) -> int:
+        return len(line) - len(line.lstrip(" "))
+
+    def next_nonempty(index: int) -> int:
+        while index < len(lines) and not lines[index].strip():
+            index += 1
+        return index
+
+    def is_mapping_line(text_line: str) -> bool:
+        if text_line.startswith("- "):
+            return False
+        key, separator, _ = text_line.partition(":")
+        return bool(separator) and bool(key.strip())
+
+    def fold_string(value: str, index: int, parent_indent: int) -> tuple[str, int]:
+        parts = [value]
+        index = next_nonempty(index)
+        while index < len(lines):
+            current_line = lines[index]
+            current_indent = line_indent(current_line)
+            if current_indent <= parent_indent:
+                break
+            stripped = current_line.strip()
+            if not stripped:
+                index += 1
+                continue
+            nested = current_line[current_indent:]
+            if stripped.startswith("- ") or is_mapping_line(nested):
+                break
+            parts.append(stripped)
+            index += 1
+            index = next_nonempty(index)
+        return " ".join(parts), index
+
+    def parse_block(index: int, indent: int) -> tuple[Any, int]:
+        index = next_nonempty(index)
+        if index >= len(lines):
+            return {}, index
+        if lines[index].lstrip().startswith("- "):
+            return parse_list(index, indent)
+        return parse_mapping(index, indent)
+
+    def parse_list(index: int, indent: int) -> tuple[list[Any], int]:
+        items: list[Any] = []
+        while True:
+            index = next_nonempty(index)
+            if index >= len(lines):
+                return items, index
+            current_line = lines[index]
+            current_indent = line_indent(current_line)
+            if current_indent < indent:
+                return items, index
+            if current_indent != indent or not current_line[indent:].startswith("- "):
+                return items, index
+            raw = current_line[indent + 2 :].strip()
+            index += 1
+            if raw:
+                value = parse_scalar(raw)
+                if isinstance(value, str):
+                    value, index = fold_string(value, index, indent)
+                items.append(value)
+            else:
+                value, index = parse_block(index, indent + 2)
+                items.append(value)
+
+    def parse_mapping(index: int, indent: int) -> tuple[dict[str, Any], int]:
+        result: dict[str, Any] = {}
+        while True:
+            index = next_nonempty(index)
+            if index >= len(lines):
+                return result, index
+            current_line = lines[index]
+            current_indent = line_indent(current_line)
+            if current_indent < indent:
+                return result, index
+            if current_indent != indent:
+                raise ValueError(
+                    f"Unexpected indentation in YAML subset parser: {current_line!r}"
+                )
+            stripped = current_line[indent:]
+            if stripped.startswith("- "):
+                return result, index
+            key, separator, raw = stripped.partition(":")
+            if not separator:
+                raise ValueError(
+                    f"Expected mapping entry in YAML subset parser: {current_line!r}"
+                )
+            index += 1
+            raw = raw.lstrip()
+            if raw:
+                value = parse_scalar(raw)
+                if isinstance(value, str):
+                    value, index = fold_string(value, index, indent)
+                result[key.strip()] = value
+            else:
+                value, index = parse_block(index, indent + 2)
+                result[key.strip()] = value
+
+    parsed, _ = parse_block(0, 0)
+    return parsed
+
+
+def load_yaml_text(text: str) -> dict[str, Any]:
+    if yaml is not None:
+        return yaml.safe_load(text) or {}
+    data = simple_yaml_load(text)
+    if not isinstance(data, dict):
+        raise TypeError("Expected YAML document to decode to a mapping.")
+    return data
+
+
+def dump_scalar(value: Any) -> str:
+    if value is None:
+        return "null"
+    if isinstance(value, bool):
+        return str(value).lower()
+    if isinstance(value, (int, float)):
+        return str(value)
+    return json.dumps(str(value), ensure_ascii=False)
+
+
+def simple_yaml_dump(data: Any, *, indent: int = 0) -> str:
+    spaces = " " * indent
+    if isinstance(data, dict):
+        lines: list[str] = []
+        for key, value in data.items():
+            if isinstance(value, (dict, list)):
+                lines.append(f"{spaces}{key}:")
+                lines.append(simple_yaml_dump(value, indent=indent + 2))
+            else:
+                lines.append(f"{spaces}{key}: {dump_scalar(value)}")
+        return "\n".join(lines)
+    if isinstance(data, list):
+        lines = []
+        for value in data:
+            if isinstance(value, (dict, list)):
+                lines.append(f"{spaces}-")
+                lines.append(simple_yaml_dump(value, indent=indent + 2))
+            else:
+                lines.append(f"{spaces}- {dump_scalar(value)}")
+        return "\n".join(lines)
+    return f"{spaces}{dump_scalar(data)}"
 
 
 def split_frontmatter(text: str) -> tuple[dict[str, Any], str]:
@@ -67,12 +237,15 @@ def split_frontmatter(text: str) -> tuple[dict[str, Any], str]:
     if len(parts) < 3:
         return {}, text
     _, raw_frontmatter, body = parts
-    frontmatter = yaml.safe_load(raw_frontmatter) or {}
+    frontmatter = load_yaml_text(raw_frontmatter)
     return frontmatter, body.lstrip()
 
 
 def yaml_frontmatter(data: dict[str, Any]) -> str:
-    dumped = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
+    if yaml is not None:
+        dumped = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
+    else:
+        dumped = simple_yaml_dump(data).strip()
     return f"---\n{dumped}\n---\n"
 
 

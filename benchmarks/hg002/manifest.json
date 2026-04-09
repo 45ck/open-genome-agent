@@ -42,6 +42,11 @@
       "description": "Machine-readable benchmark outputs for CI and reporting."
     },
     {
+      "name": "commands_jsonl",
+      "locator": "runs/<timestamp>-<run-id>/benchmarks/hg002/commands.jsonl",
+      "description": "Command provenance emitted when the repo wrapper executes hap.py."
+    },
+    {
       "name": "summary_html",
       "locator": "runs/<timestamp>-<run-id>/benchmarks/hg002/index.html",
       "description": "Human-readable benchmark summary for screenshots and docs."
