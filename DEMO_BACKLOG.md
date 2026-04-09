@@ -1,5 +1,13 @@
 # Demo Backlog
 
+This file is retained as backlog-shaping context for the proof program. It is not the active tracker.
+
+Use Beads for live execution work:
+
+- `bd ready`
+- `bd show open-genome-agent-yqv`
+- `.beads/issues.jsonl` for the exported OSS-readable snapshot
+
 This backlog turns the repo into a public proof stack with distinct deliverables for correctness, interpretation discipline, public-demo value, and cross-harness portability.
 
 The priority rule is:

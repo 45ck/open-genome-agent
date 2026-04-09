@@ -18,4 +18,4 @@ sections[5]{title,body}:
   DatasetOrder,Use synthetic fixtures first then HG002 then CMRG then one Harvard PGP public sample then 1000 Genomes then interpretation and reasoning packs.
   ProofArtifacts,Ship an HG002 benchmark page, a CMRG scorecard, one public genome walkthrough, one interpretation evaluation pack, and a CLI provenance demo.
   Constraints,Keep genome data local by default, never present output as diagnosis, and keep PRS or exploratory signals separate from direct variant findings.
-  Status,Draft plan captured in ROADMAP.md and DEMO_BACKLOG.md with Beads issues exported to .beads/issues.jsonl.
+  Status,Active plan captured in ROADMAP.md with live execution tracked in Beads and exported to .beads/issues.jsonl. DEMO_BACKLOG.md remains shaping context only.

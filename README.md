@@ -40,7 +40,12 @@ The current delivery direction is a **proof program**:
 - keep interpretation modules evidence-bound and separately evaluated
 - preserve portability across Claude Code and Codex CLI
 
-See [ROADMAP.md](ROADMAP.md) and [DEMO_BACKLOG.md](DEMO_BACKLOG.md).
+Current status:
+
+- confirmed: scaffolds, manifests, wrappers, and synthetic tests for the proof stack are in-repo
+- not yet confirmed: live public-data runs on `HG002`, `CMRG`, `huFE0257`, the selected `1000 Genomes` cohort, plus real `hap.py` and `Nextflow` execution on local inputs
+
+See [ROADMAP.md](ROADMAP.md) for the active plan, [docs/README.md](docs/README.md) for the docs map, and `.beads/issues.jsonl` or `bd ready` for the active execution backlog.
 
 ## Proof Artifacts
 
@@ -57,6 +62,13 @@ The current proof stack is visible directly in the repo:
   <img src="assets/proof-program/hg002-benchmark-card.svg" alt="HG002 benchmark proof card" width="48%" />
   <img src="assets/proof-program/public-demo-card.svg" alt="Public genome walkthrough proof card" width="48%" />
 </p>
+
+## Project navigation
+
+- roadmap: [ROADMAP.md](ROADMAP.md)
+- docs index: [docs/README.md](docs/README.md)
+- active execution backlog: `bd ready`, `bd show open-genome-agent-yqv`, or `.beads/issues.jsonl`
+- historical backlog-shaping note: [DEMO_BACKLOG.md](DEMO_BACKLOG.md)
 
 ## Why this shape
 
@@ -76,6 +88,7 @@ open-genome-agent/
   schemas/          # machine-readable output contracts
   benchmarks/       # benchmark and public-data proof-program assets
   evals/            # interpretation and reasoning evaluation packs
+  docs/             # human-readable guides, constraints, and workflow notes
   skills-src/       # harness-agnostic skill source definitions
   agents-src/       # harness-agnostic agent source definitions
   adapters/         # Claude and Codex generators + templates
@@ -217,7 +230,7 @@ The repo should prove capability in this order:
 4. one public-genome walkthrough on openly shared data
 5. interpretation evaluation packs with explicit confidence and evidence rules
 
-The backlog for that work lives in [ROADMAP.md](ROADMAP.md) and [DEMO_BACKLOG.md](DEMO_BACKLOG.md).
+The plan lives in [ROADMAP.md](ROADMAP.md). The active execution backlog lives in Beads and is exported to `.beads/issues.jsonl`.
 
 ## License
 

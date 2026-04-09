@@ -2,7 +2,13 @@
 
 The active repository roadmap now lives in the top-level [ROADMAP.md](../ROADMAP.md).
 
-That document replaces this older milestone stub with a proof-program plan that prioritizes:
+The active execution backlog now lives in Beads:
+
+- `bd ready`
+- `bd show open-genome-agent-yqv`
+- exported snapshot: `.beads/issues.jsonl`
+
+That roadmap replaces this older milestone stub with a proof-program plan that prioritizes:
 
 - public truth-set benchmarking first
 - hard-region evaluation second
@@ -10,4 +16,4 @@ That document replaces this older milestone stub with a proof-program plan that 
 - interpretation and reasoning evaluation as separate workstreams
 - cross-harness portability throughout
 
-See also [DEMO_BACKLOG.md](../DEMO_BACKLOG.md) for the GitHub-ready execution backlog.
+See [docs/README.md](README.md) for the documentation index.

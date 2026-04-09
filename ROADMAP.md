@@ -13,6 +13,26 @@ The guiding rule is simple:
 
 > Benchmark first, public genome second, private genome last.
 
+## Current Status
+
+Confirmed in-repo today:
+
+- public benchmark wrappers and manifests exist for HG002 and CMRG
+- a public-demo manifest and ingestion path exist for `huFE0257`
+- a selected `1000 Genomes` cohort summarizer exists for batch reporting
+- a guarded `Nextflow` raw-data route exists for optional heavy workflows
+
+Not yet confirmed:
+
+- real end-to-end runs on live public datasets like `HG002`, `CMRG`, `huFE0257`, and the selected `1000 Genomes` cohort
+- actual external-tool execution with real `hap.py` and `Nextflow` jobs on real local inputs
+
+Active tracking:
+
+- the live-proof execution backlog is tracked in Beads under `open-genome-agent-yqv`
+- use `bd ready` or `bd show open-genome-agent-yqv` to inspect the current execution order
+- the OSS-visible snapshot is exported to `.beads/issues.jsonl`
+
 ## North Star
 
 Ship an open-source genomics agent repo that can:
