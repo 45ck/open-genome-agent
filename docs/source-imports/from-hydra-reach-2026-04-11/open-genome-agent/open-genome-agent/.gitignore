@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local agent overrides
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Generated run artifacts
+runs/*
+!runs/.gitignore
+
+# Synthetic temp output
+tmp/
+build/
+
+# Secrets
+.env
+.env.*
+secrets/

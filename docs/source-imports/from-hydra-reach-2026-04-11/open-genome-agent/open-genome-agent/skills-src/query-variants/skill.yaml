@@ -1,0 +1,22 @@
+name: query-variants
+title: Query variants
+description: Answer targeted questions about genes, rsIDs, coordinates, or variant
+  panels from local genome files. Use for focused exploration before full reporting.
+when_to_use:
+- the user asks about a gene, variant, or coordinate range
+- you need quick local evidence without running a full pipeline
+not_when_to_use:
+- a full end-to-end report is required
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+- Bash(bcftools *)
+context: fork
+agent: Explore
+disable_model_invocation: false
+outputs:
+- query_results.tsv
+- query_notes.md

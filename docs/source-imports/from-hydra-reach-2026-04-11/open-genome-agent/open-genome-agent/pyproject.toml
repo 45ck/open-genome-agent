@@ -1,0 +1,19 @@
+[project]
+name = "open-genome-agent"
+version = "0.1.0"
+description = "Cross-harness scaffold for local-first genome-analysis skills, agents, and evidence-bound reporting."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.21",
+]
+
+[tool.unittest]
+# Placeholder section for editors that surface project metadata.
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

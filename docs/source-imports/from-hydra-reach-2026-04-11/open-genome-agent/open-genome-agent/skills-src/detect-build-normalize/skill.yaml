@@ -1,0 +1,23 @@
+name: detect-build-normalize
+title: Detect build and normalize
+description: Detect the reference build and create a normalized derived copy without
+  touching the raw input. Use before annotation or cross-tool comparison.
+when_to_use:
+- build is unknown or ambiguous
+- contig naming style differs across tools
+- annotation expects normalized variants
+not_when_to_use:
+- the input is already validated and normalized for the selected toolchain
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+- Bash(bcftools *)
+context: fork
+agent: Explore
+disable_model_invocation: false
+outputs:
+- derived/normalized.vcf.gz
+- normalization_notes.json

@@ -1,0 +1,10 @@
+{
+  "sample_id": "sample1",
+  "sex_call": null,
+  "sample_count": 1,
+  "contig_style": "plain",
+  "coverage_summary": null,
+  "notes": [
+    "Synthetic fixture. No real interpretation should be made."
+  ]
+}

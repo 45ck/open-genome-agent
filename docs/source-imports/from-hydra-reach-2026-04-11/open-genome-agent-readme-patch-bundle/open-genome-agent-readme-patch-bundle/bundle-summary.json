@@ -1,0 +1,9 @@
+{
+  "changed_files": [
+    "README.md",
+    "docs/README.md",
+    "docs/confidence-model.md",
+    "docs/what-we-do-not-claim.md"
+  ],
+  "intent": "Reposition repo messaging around user-facing DNA analysis outcomes, confidence tiers, and limitations."
+}

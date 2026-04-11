@@ -1,0 +1,20 @@
+name: pharmacogenomics
+title: Pharmacogenomics
+description: Generate a clearly separated pharmacogenomics section with conservative
+  language and explicit human-review flags. Use only when the user requests drug-response
+  analysis.
+when_to_use:
+- the user explicitly requests drug-response or medication-response clues
+not_when_to_use:
+- the user only wants ancestry or general variant analysis
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+context: fork
+agent: null
+disable_model_invocation: false
+outputs:
+- pharmacogenomics.json

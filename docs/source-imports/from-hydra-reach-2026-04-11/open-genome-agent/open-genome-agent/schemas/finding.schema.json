@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finding",
+  "type": "object",
+  "required": [
+    "finding_id",
+    "category",
+    "confidence",
+    "evidence_refs",
+    "human_review_required"
+  ],
+  "properties": {
+    "finding_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "variant",
+        "carrier-status",
+        "pharmacogenomics",
+        "polygenic-risk",
+        "trait",
+        "ancestry",
+        "quality-control",
+        "other"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "strong",
+        "plausible",
+        "hypothesis",
+        "unsupported"
+      ]
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "gene": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transcript": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "build": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "chrom": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pos": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "score_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "score_value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tool_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_review_required": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+Subject: [PATCH] docs: reposition repo around user-facing DNA analysis confidence model
+
+---
+ README.md                      |  62 ++++++++++++++++++++++------
+ docs/README.md                 |  12 ++++--
+ docs/confidence-model.md       |  44 ++++++++++++++++++++
+ docs/what-we-do-not-claim.md   |  22 +++++++++-
+ 4 files changed, 120 insertions(+), 20 deletions(-)
+ create mode 100644 docs/confidence-model.md
+
+--- a/README.md+++ b/README.md@@ -8,9 +8,9 @@ [![CodeQL](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml/badge.svg)](https://github.com/45ck/open-genome-agent/actions/workflows/codeql.yml)
+ [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+ 
+-Local-first, evidence-bound genomics workflows for coding agents.
+-
+-This repository is a **cross-harness scaffold** for building reusable genome-analysis skills, agents, hooks, and reporting pipelines that work across:
++**Analyze your DNA locally with coding agents — and separate stronger signals, weaker signals, and things your genome cannot reliably tell you.**
++
++`open-genome-agent` is a local-first DNA analysis copilot for:
+ 
+ - **Claude Code**
+ - **Codex CLI**
+@@ -19,6 +19,50 @@ The design principle is simple:
+ 
+ > **LLM orchestrates. Deterministic bioinformatics tools compute. Structured evidence drives every claim.**
++
++## What this repo is for
++
++This repo is for people who want a system that can help answer questions like:
++
++- What known variants stand out in my data?
++- Are there carrier-status findings worth noticing?
++- Are there pharmacogenomic findings worth discussing with a clinician?
++- What ancestry or lineage clues are visible?
++- Which outputs are fairly strong, which are probabilistic, and which should be treated as weak hints only?
++
++It should feel more like a **disciplined genomics research assistant** than a generic DNA-summary app.
++
++## Confidence model at a glance
++
++### Can often help with relatively stronger signals
++
++- known or well-characterized variant lookups
++- carrier-style findings
++- some pharmacogenomic findings
++- ancestry and lineage clues
++- some simpler trait-linked variants
++
++### May help with weaker, probabilistic signals
++
++- polygenic risk scores
++- trait tendencies
++- performance or body predispositions
++- exploratory leads that deserve follow-up, not blind trust
++
++### Should not claim to tell you
++
++- exact future outcomes
++- exact disease certainty or timing
++- exact personality, intelligence, or lifespan
++- medication safety without clinician review
++
++See [docs/confidence-model.md](docs/confidence-model.md) and [docs/what-we-do-not-claim.md](docs/what-we-do-not-claim.md).
++
++## What this repo is not
++
++This is **not** a doctor, **not** a diagnosis engine, and **not** a replacement for a genetic counselor or clinician.
++
++If the system surfaces something high-impact, the right next step is **human review**.
+ 
+ ## Status
+ 
+@@ -55,6 +99,7 @@ - hard-region benchmark flow: [benchmarks/cmrg/README.md](benchmarks/cmrg/README.md)
+ - public genome walkthrough: [benchmarks/public-demos/README.md](benchmarks/public-demos/README.md)
+ - interpretation evaluation pack: [evals/interpretation/README.md](evals/interpretation/README.md)
++- confidence model: [docs/confidence-model.md](docs/confidence-model.md)
+ - provenance transcript: [docs/cli-provenance-demo.md](docs/cli-provenance-demo.md)
+ - limitations panel: [docs/what-we-do-not-claim.md](docs/what-we-do-not-claim.md)
+ 
+@@ -74,7 +119,7 @@ 
+ The repo separates three concerns:
+ 
+-1. **Policy** — durable operating rules and output requirements
++1. **User-facing confidence model** — what can be said strongly, probabilistically, or not at all
+ 2. **Source definitions** — skill and agent specs that stay harness-agnostic
+ 3. **Adapters** — generated runtime layouts for each coding harness
+ 
+@@ -88,7 +133,7 @@   schemas/          # machine-readable output contracts
+   benchmarks/       # benchmark and public-data proof-program assets
+   evals/            # interpretation and reasoning evaluation packs
+-  docs/             # human-readable guides, constraints, and workflow notes
++  docs/             # human-readable guides, confidence rules, and workflow notes
+   skills-src/       # harness-agnostic skill source definitions
+   agents-src/       # harness-agnostic agent source definitions
+   adapters/         # Claude and Codex generators + templates
+
+--- a/docs/README.md+++ b/docs/README.md@@ -1,13 +1,20 @@ # Docs
+ 
+-Use this directory as the stable entrypoint for repo documentation.
++Use this directory as the stable entrypoint for repository documentation.
+ 
+ ## Start Here
+ 
+ - repo overview: [README.md](../README.md)
++- confidence model: [confidence-model.md](confidence-model.md)
+ - active roadmap: [ROADMAP.md](../ROADMAP.md)
+ - safety and scope boundaries: [safety-model.md](safety-model.md)
+ - reporting contract: [reporting-spec.md](reporting-spec.md)
++
++## User-Facing Guides
++
++- what the repo can often tell you: [confidence-model.md](confidence-model.md)
++- what the repo does not claim: [what-we-do-not-claim.md](what-we-do-not-claim.md)
++- privacy context for public demos: [public-demo-privacy.md](public-demo-privacy.md)
+ 
+ ## Workflow Guides
+ 
+@@ -15,11 +22,6 @@ - optional raw-data route: [raw-data-route.md](raw-data-route.md)
+ - CLI provenance example: [cli-provenance-demo.md](cli-provenance-demo.md)
+ - harness differences: [harness-matrix.md](harness-matrix.md)
+-
+-## Repo Policy Pages
+-
+-- what the repo does not claim: [what-we-do-not-claim.md](what-we-do-not-claim.md)
+-- privacy context for public demos: [public-demo-privacy.md](public-demo-privacy.md)
+ - architecture notes: [architecture.md](architecture.md)
+ 
+ ## Planning And Tracking
+
+--- a/docs/what-we-do-not-claim.md+++ b/docs/what-we-do-not-claim.md@@ -1,8 +1,30 @@ # What We Do Not Claim
+ 
+-- We do not claim diagnostic certainty from this repo.
++This repo should be explicit about its limits.
++
++## We do not claim diagnostic certainty
++
++- We do not claim that this repo can diagnose disease.
++- We do not claim that a strong-looking variant finding is the same thing as a clinical diagnosis.
+ - We do not claim that benchmark precision and recall equal clinical validity.
++
++## We do not claim that weak signals are strong signals
++
+ - We do not claim that PRS or trait-style outputs belong in the same confidence bucket as direct variant findings.
+-- We do not claim that a public profile or public genome file removes the need for limitations and caveats.
++- We do not claim that exploratory or probabilistic outputs should be treated like hard answers.
++- We do not claim that a polished report removes the need for caveats.
++
++## We do not claim that public data removes responsibility
++
++- We do not claim that a public profile or public genome file removes the need for limitations and uncertainty.
++- We do not claim that public-demo convenience changes the interpretation bar.
++
++## We do not claim that one source settles everything
++
+ - We do not claim that functional assay evidence alone settles final clinical significance.
++- We do not claim that one database, one benchmark, or one annotation pass is enough on its own.
++
++## We do not claim that pharmacogenomics output is self-executing
++
+ - We do not claim that pharmacogenomics guidance should be followed without human review.
++- We do not claim that this repo can tell someone to start, stop, or change medication.
+
+--- /dev/null+++ b/docs/confidence-model.md@@ -0,0 +1,59 @@+# Confidence Model
++
++This page explains how `open-genome-agent` should talk about DNA results.
++
++The goal is simple:
++
++- stronger signals should be presented as stronger signals
++- weaker signals should be presented as weaker signals
++- unsupported claims should stay out of the report
++
++## 1. Can often help with relatively stronger signals
++
++These are the categories the repo should eventually handle best:
++
++- known or well-characterized variant lookups
++- carrier-style findings
++- some pharmacogenomic findings
++- ancestry and lineage clues
++- some simpler trait-linked variants
++
++These are not guaranteed to be clinically decisive, but they are usually more defensible than speculative summaries.
++
++## 2. May help with weaker, probabilistic signals
++
++These categories can still be useful, but they should be framed as probabilities or tendencies:
++
++- polygenic risk scores
++- trait tendencies
++- performance or body predispositions
++- exploratory leads worth following up
++
++This repo should always present these as **probabilistic**, not deterministic.
++
++## 3. Should not claim to tell you
++
++The repo should not present itself as able to reliably tell you:
++
++- exact future disease outcomes
++- exact disease timing or severity
++- exact personality, intelligence, or lifespan
++- medication safety without clinician review
++- one final answer with no ambiguity
++
++## 4. Output buckets
++
++Reports should separate at least four categories:
++
++1. **higher-confidence findings**
++2. **probabilistic findings**
++3. **exploratory leads**
++4. **unknowns / limitations**
++
++That separation matters more than polished wording.
++
++## 5. Human review rule
++
++If the system surfaces something high-impact, the next step should be **human review**, not false certainty.
++
++This repo is not a doctor, not a genetic counselor, and not a diagnosis engine.

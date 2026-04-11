@@ -1,0 +1,22 @@
+name: ingest-vcf
+title: Ingest VCF
+description: Validate and inventory VCF or BCF input files before downstream analysis.
+  Use when a user provides a genome variant file or asks what data is inside it.
+when_to_use:
+- a VCF, VCF.GZ, BCF, TBI, or CSI file arrives
+- you need sample names, header metadata, or file hashes
+not_when_to_use:
+- the workflow starts from FASTQ only
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+- Bash(bcftools *)
+context: fork
+agent: Explore
+disable_model_invocation: false
+outputs:
+- run_manifest.json
+- sample_summary.json

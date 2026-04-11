@@ -1,0 +1,19 @@
+{
+  "run_id": "demo-run-001",
+  "created_at": "2026-04-08T00:00:00Z",
+  "harness": "manual",
+  "reference_build": null,
+  "inputs": [
+    {
+      "path": "examples/synthetic/minimal.vcf",
+      "kind": "vcf",
+      "sha256": "synthetic-placeholder-sha256",
+      "index_path": null
+    }
+  ],
+  "tool_versions": {
+    "python": "3.x",
+    "builder": "0.1.0"
+  },
+  "notes": "Synthetic example only."
+}

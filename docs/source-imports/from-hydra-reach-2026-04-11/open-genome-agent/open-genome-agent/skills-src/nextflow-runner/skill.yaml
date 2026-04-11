@@ -1,0 +1,22 @@
+name: nextflow-runner
+title: Nextflow runner
+description: Run or prepare reproducible Nextflow workflows for heavy genomics jobs.
+  Use only for explicit workflow execution, not routine question answering.
+when_to_use:
+- raw-read or heavy pipeline execution is explicitly requested
+- the environment is ready for Nextflow
+not_when_to_use:
+- a VCF-first local analysis is sufficient
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+- Bash(nextflow *)
+context: null
+agent: null
+disable_model_invocation: true
+outputs:
+- workflow_run.json
+- pipeline_logs/

@@ -1,0 +1,21 @@
+name: prioritize-findings
+title: Prioritize findings
+description: Convert raw annotations into ranked, evidence-linked findings. Use after
+  annotation when building a structured report.
+when_to_use:
+- annotations are complete and need triage
+- a user wants a ranked output instead of raw tables
+not_when_to_use:
+- annotation has not been completed
+allowed_tools:
+- Read
+- Glob
+- Grep
+- Bash(python *)
+- Bash(python3 *)
+context: fork
+agent: null
+disable_model_invocation: false
+outputs:
+- findings.json
+- evidence.jsonl
